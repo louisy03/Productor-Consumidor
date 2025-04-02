@@ -37,11 +37,11 @@ class ProductorConsumidor:
                 self.mutex.acquire()  # Entrar a sección crítica
                 
                 self.productor_en_buffer = True
-                print("Productor entró al buffer")
+                print("Productor entro al buffer")
                 
                 # Determinar cuántos elementos producir (1-5)
                 elementos_a_producir = random.randint(1, 5)
-                print(f"Productor intentará producir {elementos_a_producir} elementos")
+                print(f"Productor intentara producir {elementos_a_producir} elementos")
                 
                 # Producir elementos
                 for _ in range(elementos_a_producir):
@@ -60,7 +60,7 @@ class ProductorConsumidor:
                 print("\nEstado del buffer:")
                 self.imprimir_buffer()
             else:
-                print("Productor no pudo entrar al buffer (no hay espacio o consumidor está dentro)")
+                print("Productor no pudo entrar al buffer (no hay espacio o consumidor esta dentro)")
 
     def consumidor(self):
         while self.running:
@@ -78,11 +78,11 @@ class ProductorConsumidor:
                 self.mutex.acquire()  # Entrar a sección crítica
                 
                 self.consumidor_en_buffer = True
-                print("Consumidor entró al buffer")
+                print("Consumidor entro al buffer")
                 
                 # Determinar cuántos elementos consumir (1-5)
                 elementos_a_consumir = random.randint(1, 5)
-                print(f"Consumidor intentará consumir {elementos_a_consumir} elementos")
+                print(f"Consumidor intentara consumir {elementos_a_consumir} elementos")
                 
                 # Consumir elementos
                 for _ in range(elementos_a_consumir):
@@ -101,7 +101,7 @@ class ProductorConsumidor:
                 print("\nEstado del buffer:")
                 self.imprimir_buffer()
             else:
-                print("Consumidor no pudo entrar al buffer (no hay items o productor está dentro)")
+                print("Consumidor no pudo entrar al buffer (no hay items o productor esta dentro)")
 
     def run(self):
         # Crear hilos
@@ -126,7 +126,6 @@ class ProductorConsumidor:
 
 if __name__ == "__main__":
     pc = ProductorConsumidor()
-    print("Programa Productor-Consumidor iniciado. Presione ESC para terminar.")
     print("Estado inicial del buffer:")
     pc.imprimir_buffer()
     pc.run()
